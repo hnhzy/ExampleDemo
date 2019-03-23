@@ -11,7 +11,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.hzy.exampledemo.R;
@@ -23,6 +25,7 @@ import com.hzy.exampledemo.R;
  */
 public class DatailActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private ImageView mImageView;
     private FloatingActionButton mFloatingActionButton;
 
@@ -30,6 +33,20 @@ public class DatailActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("DatailActivity");
+        setSupportActionBar(toolbar);
+        // 给左上角图标的左边加上一个返回的图标 。
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         mImageView = findViewById(R.id.image);
         mFloatingActionButton = findViewById(R.id.fabbtn);
         mImageView.setBackgroundResource(getIntent().getIntExtra("id", 0));
