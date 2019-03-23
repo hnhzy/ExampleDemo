@@ -24,7 +24,6 @@ import java.util.List;
  * Created by hzy on 2019/3/14
  *
  * @author Administrator
- *
  */
 public class FabActivity extends AppCompatActivity {
 
@@ -46,13 +45,14 @@ public class FabActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("FloatingActionButton");
         setSupportActionBar(toolbar);
+        // 给左上角图标的左边加上一个返回的图标 。
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

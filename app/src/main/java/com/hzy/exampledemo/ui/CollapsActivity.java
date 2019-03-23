@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.BaseFragmentAdapter;
@@ -38,7 +39,14 @@ public class CollapsActivity extends AppCompatActivity {
 
         mToolbar.setTitle("唐嫣");
         setSupportActionBar(mToolbar);
+        // 给左上角图标的左边加上一个返回的图标 。
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         setupViewPager();

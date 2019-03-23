@@ -2,30 +2,15 @@ package com.hzy.exampledemo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.hzy.exampledemo.R;
-import com.hzy.exampledemo.adapter.DiffAdapter;
 import com.hzy.exampledemo.adapter.MainListAdapter;
-import com.hzy.exampledemo.bean.Person;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.ArrayList;
@@ -63,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         mList.add("DrawerActivity");
         mList.add("MenuActivity");
         mList.add("CollapsingToolbarLayout");
+        mList.add("ScrollingActivity");
+        mList.add("SceneTransitionActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -81,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         startActivity(new Intent(MainActivity.this, CollapsActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, ScrollingActivity.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, SceneTransitionActivity.class));
                         break;
                     default:
                         break;

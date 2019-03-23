@@ -33,6 +33,17 @@
         <activity
             android:name=".ui.CollapsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ScrollingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SceneTransitionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.DatailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Detail"/>
+
     </application>
 
 </manifest>
