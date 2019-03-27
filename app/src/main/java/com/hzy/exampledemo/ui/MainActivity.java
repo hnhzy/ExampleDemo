@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         startActivity(new Intent(MainActivity.this, SceneTransitionActivity.class));
+                        /**
+                         * R.anim.slide_in_right:新的Activity进入时的动画，这里是指OtherActivity进入时的动画
+                         * R.anim.slide_out_left：旧的Activity出去时的动画，这里是指this进入时的动画
+                         */
+                        overridePendingTransition(R.anim.slide_left_in, R.anim.slide_right_out);
                         break;
                     default:
                         break;
