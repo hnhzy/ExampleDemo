@@ -1,4 +1,4 @@
-package com.hzy.exampledemo.ui;
+package com.hzy.exampledemo.ui.design;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

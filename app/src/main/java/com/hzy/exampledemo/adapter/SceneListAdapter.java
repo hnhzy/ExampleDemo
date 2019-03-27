@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.hzy.exampledemo.R;
-import com.hzy.exampledemo.ui.DatailActivity;
+import com.hzy.exampledemo.ui.design.DatailActivity;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 

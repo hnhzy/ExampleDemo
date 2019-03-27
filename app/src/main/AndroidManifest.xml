@@ -22,27 +22,30 @@
         </activity>
 
         <activity
-            android:name=".ui.FabActivity"
+            android:name=".ui.design.FabActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.DrawerActivity"
+            android:name=".ui.design.DrawerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.MenuActivity"
+            android:name=".ui.design.MenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.CollapsActivity"
+            android:name=".ui.design.CollapsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.ScrollingActivity"
+            android:name=".ui.design.ScrollingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.SceneTransitionActivity"
+            android:name=".ui.design.SceneTransitionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.DatailActivity"
+            android:name=".ui.design.DatailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Detail"/>
+            android:theme="@style/AppTheme.Detail" />
+        <activity
+            android:name=".ui.customview.CustomView1Activity"
+            android:screenOrientation="portrait" />
 
     </application>
 

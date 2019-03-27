@@ -1,4 +1,4 @@
-package com.hzy.exampledemo.ui;
+package com.hzy.exampledemo.ui.design;
 
 import android.animation.Animator;
 import android.app.Activity;

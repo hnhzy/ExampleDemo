@@ -11,6 +11,13 @@ import android.widget.Toast;
 
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
+import com.hzy.exampledemo.ui.customview.CustomView1Activity;
+import com.hzy.exampledemo.ui.design.CollapsActivity;
+import com.hzy.exampledemo.ui.design.DrawerActivity;
+import com.hzy.exampledemo.ui.design.FabActivity;
+import com.hzy.exampledemo.ui.design.MenuActivity;
+import com.hzy.exampledemo.ui.design.SceneTransitionActivity;
+import com.hzy.exampledemo.ui.design.ScrollingActivity;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.ArrayList;
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("CollapsingToolbarLayout");
         mList.add("ScrollingActivity");
         mList.add("SceneTransitionActivity");
+        mList.add("CustomView1Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -57,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 switch (position) {
+                    //design
                     case 0:
                         startActivity(new Intent(MainActivity.this, FabActivity.class));
                         break;
@@ -79,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
                          * R.anim.slide_out_left：旧的Activity出去时的动画，这里是指this进入时的动画
                          */
                         overridePendingTransition(R.anim.slide_left_in, R.anim.slide_right_out);
+                        break;
+                    //自定义View
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, CustomView1Activity.class));
                         break;
                     default:
                         break;
