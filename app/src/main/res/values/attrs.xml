@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTextView">
+        <attr name="CustomTextColor" format="color"></attr>
+        <attr name="CustomText" format="string"></attr>
+        <attr name="CustomTextSize" format="dimension"></attr>
+        <attr name="CustomTextMaxLength" format="integer"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="lineSpacing" format="dimension"></attr>
+        <attr name="itemSpacing" format="dimension"></attr>
+    </declare-styleable>
+</resources>

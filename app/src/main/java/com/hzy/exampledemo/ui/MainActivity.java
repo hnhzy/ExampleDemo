@@ -2,6 +2,7 @@ package com.hzy.exampledemo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.internal.FlowLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
+import com.hzy.exampledemo.ui.customview.CustomView2Activity;
+import com.hzy.exampledemo.ui.customview.CustomView3Activity;
 import com.hzy.exampledemo.ui.design.CollapsActivity;
 import com.hzy.exampledemo.ui.design.DrawerActivity;
 import com.hzy.exampledemo.ui.design.FabActivity;
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         mList.add("ScrollingActivity");
         mList.add("SceneTransitionActivity");
         mList.add("CustomView1Activity");
+        mList.add("CustomView2Activity");
+        mList.add("CustomView3Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -91,7 +96,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     //自定义View
                     case 6:
+                        //可以移动的view onTouch
                         startActivity(new Intent(MainActivity.this, CustomView1Activity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, CustomView2Activity.class));
+                        break;
+                    case 8:
+                        startActivity(new Intent(MainActivity.this, CustomView3Activity.class));
                         break;
                     default:
                         break;

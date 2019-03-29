@@ -46,6 +46,12 @@
         <activity
             android:name=".ui.customview.CustomView1Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView3Activity"
+            android:screenOrientation="portrait" />
 
     </application>
 
