@@ -13,17 +13,22 @@ import com.hzy.exampledemo.utils.DipUtil;
  * @description:
  * @date :2019/3/27 16:17
  */
-public class MoveView extends AppCompatButton implements View.OnTouchListener {
+public class MoveView extends AppCompatButton {
 
     /**
-     * //可拖拽按钮-触摸开始时间
+     * 开始的位置
+     */
+    private int startLacation = 10;
+
+    /**
+     * 可拖拽按钮-触摸开始时间
      */
     private long startTime = 0;
 
     /**
-     * //可拖拽按钮-是否是要点击效果
+     * 判断是点击还是移动
      */
-    private boolean isClick = false;
+    private boolean isClick = true;
 
     /**
      * 按下时View的位置
@@ -59,34 +64,40 @@ public class MoveView extends AppCompatButton implements View.OnTouchListener {
         statusHeight = DipUtil.getStatusHeight(getContext());
         screenWidth = DipUtil.getScreenWidth(getContext());
         screenHeight = DipUtil.getScreenHeight(getContext());
-        setOnTouchListener(this);
     }
 
-
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int x = (int) motionEvent.getRawX();
-        int y = (int) motionEvent.getRawY();
-        switch (motionEvent.getAction()) {
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getRawX();
+        int y = (int) event.getRawY();
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                isClick = true;
                 startTime = System.currentTimeMillis();
-                downX = (int) motionEvent.getRawX();
-                downY = (int) motionEvent.getRawY();
+                downX = (int) event.getRawX();
+                downY = (int) event.getRawY();
                 break;
             case MotionEvent.ACTION_MOVE:
+                isClick = false;
                 //手指有移动才更新位置
-                if (Math.abs(x - downX) > 10 || Math.abs(y - downY) > 10) {
+                if (Math.abs(x - downX) > startLacation || Math.abs(y - downY) > startLacation) {
                     moveViewByLayout(this, x, y);
                 }
                 break;
             case MotionEvent.ACTION_UP:
                 boolean upTime = System.currentTimeMillis() - startTime < 100;
-                isClick = !upTime;
+                if (isClick) {
+                    if (upTime) {
+                        performClick();
+                    } else {
+                        performLongClick();
+                    }
+                }
                 break;
             default:
                 break;
         }
-        return isClick;
+        return true;
     }
 
     /**
@@ -98,21 +109,28 @@ public class MoveView extends AppCompatButton implements View.OnTouchListener {
      * @param rawY
      */
     private void moveViewByLayout(View view, int rawX, int rawY) {
-        int left = rawX - view.getWidth() / 2;
-        int top = rawY - statusHeight - view.getHeight() / 2;
-        //边距检测
-        if (left < 0) {
-            left = 0;
-        } else if (left > screenWidth - view.getWidth()) {
-            left = screenWidth - view.getWidth();
+        //记录左上点的位置
+        int l = rawX - view.getWidth() / 2;
+        int t = rawY - statusHeight - view.getHeight() / 2;
+
+        //检测左右边界
+        if (l < 0) {
+            l = 0;
+        } else if (l > screenWidth - view.getWidth()) {
+            l = screenWidth - view.getWidth();
         }
-        if (top < 0) {
-            top = 0;
-        } else if (top > screenHeight - statusHeight - view.getHeight()) {
-            top = screenHeight - statusHeight - view.getHeight();
+
+        //检测上下边界
+        if (t < 0) {
+            t = 0;
+        } else if (t > screenHeight - statusHeight - view.getHeight()) {
+            t = screenHeight - statusHeight - view.getHeight();
         }
-        int width = left + view.getWidth();
-        int height = top + view.getHeight();
-        view.layout(left, top, width, height);
+
+        //记录右下点的位置
+        int r = l + view.getWidth();
+        int b = t + view.getHeight();
+
+        view.layout(l, t, r, b);
     }
 }

@@ -3,7 +3,6 @@ package com.hzy.exampledemo.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -102,6 +101,14 @@ public class FlowLayout extends ViewGroup {
         }
     }
 
+    /**
+     *当这个view和其子view被分配一个大小和位置时，被layout调用。
+     * @param changed 当前View的大小和位置改变了
+     * @param l       左部位置（相对于父视图）
+     * @param t       顶部位置（相对于父视图）
+     * @param r       右部位置（相对于父视图）
+     * @param b       底部位置（相对于父视图）
+     */
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         mAllViews.clear();
@@ -109,21 +116,28 @@ public class FlowLayout extends ViewGroup {
 
         // 当前ViewGroup的宽度
         int width = getWidth();
-        Log.d("FlowLayout","getWidth="+getWidth());
-        Log.d("FlowLayout","getMeasuredWidth="+getMeasuredWidth());
 
         int lineWidth = 0;
         int lineHeight = 0;
 
         // 获取每一行的view集合
         List<View> viewList = new ArrayList<>();
+        /**
+         * 1、通过getChildCount，获取子View的个数view个数
+         */
         int childCount = getChildCount();
+        /**
+         * 2、遍历childCount，通过getChildAt获取到对应的view，并按每一行的viewList记录，记录在mAllViews内
+         */
         for (int i = 0; i < childCount; i++) {
             View childView = getChildAt(i);
             MarginLayoutParams lp = (MarginLayoutParams) childView.getLayoutParams();
             int childWidth = childView.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             int childHeight = childView.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
-            // 换行
+            /**
+             * 如果换行则添加则把高度加入mLineHeight，把当前行的viewList加入到mAllViews，并viewList，lineWidth，lineHeight
+             * 如果不换行则记录宽度则直接添加当前控件的宽度到lineWidth内
+             */
             if (lineWidth + childWidth > width - getPaddingLeft() - getPaddingRight()) {
                 // 记录当前行的Views
                 mAllViews.add(viewList);
@@ -137,14 +151,22 @@ public class FlowLayout extends ViewGroup {
                 lineHeight = childHeight;
             } else {
                 lineWidth += childWidth;
+                /**
+                 * 取当前控件的高度和之前记录的高度的最大值
+                 */
                 lineHeight = Math.max(lineHeight, childHeight);
             }
             viewList.add(childView);
         }
-        // 处理最后一行
+        /**
+         * 处理最后一行
+         */
         mAllViews.add(viewList);
         mLineHeight.add(lineHeight);
 
+        /**
+         * 3、遍历mAllViews，通过view.layout(lc, tc, rc, bc);确定各个子View的位置
+         */
         // 行的个数
         int lineNum = mAllViews.size();
         // view的初始位置
@@ -163,21 +185,13 @@ public class FlowLayout extends ViewGroup {
                 int tc = top + lp.topMargin;
                 int rc = lc + view.getMeasuredWidth();
                 int bc = tc + view.getMeasuredHeight();
+                Log.d("onLayout","getMeasuredHeight="+view.getMeasuredHeight());
+                Log.d("onLayout","getHeight="+view.getHeight());
                 view.layout(lc, tc, rc, bc);
                 left += view.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             }
             left = getPaddingLeft();
             top += lineHeight;
         }
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
-    }
-
-    @Override
-    public boolean onInterceptHoverEvent(MotionEvent event) {
-        return super.onInterceptHoverEvent(event);
     }
 }

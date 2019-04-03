@@ -15,6 +15,9 @@ import com.hzy.exampledemo.adapter.MainListAdapter;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
 import com.hzy.exampledemo.ui.customview.CustomView2Activity;
 import com.hzy.exampledemo.ui.customview.CustomView3Activity;
+import com.hzy.exampledemo.ui.customview.CustomView4Activity;
+import com.hzy.exampledemo.ui.customview.CustomView5Activity;
+import com.hzy.exampledemo.ui.customview.CustomView6Activity;
 import com.hzy.exampledemo.ui.design.CollapsActivity;
 import com.hzy.exampledemo.ui.design.DrawerActivity;
 import com.hzy.exampledemo.ui.design.FabActivity;
@@ -63,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         mList.add("CustomView1Activity");
         mList.add("CustomView2Activity");
         mList.add("CustomView3Activity");
+        mList.add("CustomView4Activity");
+        mList.add("CustomView5Activity");
+        mList.add("CustomView6Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -104,6 +110,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 8:
                         startActivity(new Intent(MainActivity.this, CustomView3Activity.class));
+                        break;
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, CustomView4Activity.class));
+                        break;
+                    case 10:
+                        startActivity(new Intent(MainActivity.this, CustomView5Activity.class));
+                        break;
+                    case 11:
+                        startActivity(new Intent(MainActivity.this, CustomView6Activity.class));
                         break;
                     default:
                         break;

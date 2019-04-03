@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * @author hzy
- * @description:
+ * @description:流线布局
  * @date :2019/3/28 18:24
  */
 public class CustomView3Activity extends AppCompatActivity {
