@@ -11,4 +11,10 @@
         <attr name="lineSpacing" format="dimension"></attr>
         <attr name="itemSpacing" format="dimension"></attr>
     </declare-styleable>
+
+    <declare-styleable name="AbilityView">
+        <attr name="corner" format="integer"></attr>
+        <attr name="radius" format="dimension"></attr>
+        <attr name="intervalCount" format="integer"></attr>
+    </declare-styleable>
 </resources>

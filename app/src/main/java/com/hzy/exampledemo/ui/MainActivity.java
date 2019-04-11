@@ -12,12 +12,16 @@ import android.widget.Toast;
 
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
+import com.hzy.exampledemo.ui.customview.CustomView10Activity;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
 import com.hzy.exampledemo.ui.customview.CustomView2Activity;
 import com.hzy.exampledemo.ui.customview.CustomView3Activity;
 import com.hzy.exampledemo.ui.customview.CustomView4Activity;
 import com.hzy.exampledemo.ui.customview.CustomView5Activity;
 import com.hzy.exampledemo.ui.customview.CustomView6Activity;
+import com.hzy.exampledemo.ui.customview.CustomView7Activity;
+import com.hzy.exampledemo.ui.customview.CustomView8Activity;
+import com.hzy.exampledemo.ui.customview.CustomView9Activity;
 import com.hzy.exampledemo.ui.design.CollapsActivity;
 import com.hzy.exampledemo.ui.design.DrawerActivity;
 import com.hzy.exampledemo.ui.design.FabActivity;
@@ -69,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         mList.add("CustomView4Activity");
         mList.add("CustomView5Activity");
         mList.add("CustomView6Activity");
+        mList.add("CustomView7Activity");
+        mList.add("CustomView8Activity");
+        mList.add("CustomView9Activity");
+        mList.add("CustomView10Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -119,6 +127,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 11:
                         startActivity(new Intent(MainActivity.this, CustomView6Activity.class));
+                        break;
+                    case 12:
+                        startActivity(new Intent(MainActivity.this, CustomView7Activity.class));
+                        break;
+                    case 13:
+                        startActivity(new Intent(MainActivity.this, CustomView8Activity.class));
+                        break;
+                    case 14:
+                        startActivity(new Intent(MainActivity.this, CustomView9Activity.class));
+                        break;
+                    case 15:
+                        startActivity(new Intent(MainActivity.this, CustomView10Activity.class));
                         break;
                     default:
                         break;

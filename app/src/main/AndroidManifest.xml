@@ -61,6 +61,18 @@
         <activity
             android:name=".ui.customview.CustomView6Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView7Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView8Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView9Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView10Activity"
+            android:screenOrientation="portrait" />
 
     </application>
 
