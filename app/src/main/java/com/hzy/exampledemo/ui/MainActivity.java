@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
 import com.hzy.exampledemo.ui.customview.CustomView10Activity;
+import com.hzy.exampledemo.ui.customview.CustomView11Activity;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
 import com.hzy.exampledemo.ui.customview.CustomView2Activity;
 import com.hzy.exampledemo.ui.customview.CustomView3Activity;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("CustomView8Activity");
         mList.add("CustomView9Activity");
         mList.add("CustomView10Activity");
+        mList.add("CustomView11Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -139,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 15:
                         startActivity(new Intent(MainActivity.this, CustomView10Activity.class));
+                        break;
+                    case 16:
+                        startActivity(new Intent(MainActivity.this, CustomView11Activity.class));
                         break;
                     default:
                         break;

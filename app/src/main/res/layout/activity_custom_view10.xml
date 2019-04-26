@@ -16,5 +16,4 @@
         app:intervalCount="4"
         app:radius="120dp" />
 
-
 </LinearLayout>

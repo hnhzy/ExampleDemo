@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author hzy
- * @description:
+ * @description:AbilityView 雷达图
  * @date :2019/4/1 15:43
  */
 public class AbilityView extends View {
@@ -130,6 +130,7 @@ public class AbilityView extends View {
         // 初始化画笔
         linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         linePaint.setStrokeWidth(DipUtil.dip2px(context, 1f));
+
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(DipUtil.sp2px(context, 14));
         textPaint.setTextAlign(Paint.Align.CENTER);
@@ -153,6 +154,9 @@ public class AbilityView extends View {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            /**
+             * 根据count自增去实现逐步放大功能
+             */
             count++;
             weakReference.get().invalidate();
         }
@@ -163,16 +167,21 @@ public class AbilityView extends View {
         super.onDraw(canvas);
         // 将画布移动到中心
         canvas.translate(getWidth() / 2, getHeight() / 2);
-        // 画每个面
+        // 根据intervalCount的个数绘制每个面
         drawPolygon(canvas);
-        // 勾勒外围轮廓线
+        // 连接半径上面的点，勾勒外围轮廓线
         drawOutLine(canvas);
         // 绘制文本
         drawText(canvas);
-        // 画出能力值的线
+        // 绘制能力值的线
         drawAbility(canvas);
     }
 
+    /**
+     * 根据intervalCount的个数绘制每个面
+     *
+     * @param canvas
+     */
     private void drawPolygon(Canvas canvas) {
         canvas.save();
         linePaint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -209,6 +218,11 @@ public class AbilityView extends View {
         canvas.restore();
     }
 
+    /**
+     * 连接半径上面的点，绘制外部轮廓
+     *
+     * @param canvas
+     */
     private void drawOutLine(Canvas canvas) {
         canvas.save();
         Path path = new Path();
@@ -222,6 +236,7 @@ public class AbilityView extends View {
             } else {
                 path.lineTo(x, y);
             }
+            //绘制半径
             canvas.drawLine(0, 0, x, y, linePaint);
         }
         path.close();
@@ -229,6 +244,11 @@ public class AbilityView extends View {
         canvas.restore();
     }
 
+    /**
+     * 绘制文本
+     *
+     * @param canvas
+     */
     private void drawText(Canvas canvas) {
         canvas.save();
         Paint pointPaint = new Paint();
@@ -245,6 +265,11 @@ public class AbilityView extends View {
         canvas.restore();
     }
 
+    /**
+     * 绘制能力值的线
+     *
+     * @param canvas
+     */
     private void drawAbility(final Canvas canvas) {
         if (abList == null) {
             return;
@@ -252,7 +277,11 @@ public class AbilityView extends View {
         linePaint.setColor(Color.parseColor("#E96153"));
         linePaint.setStyle(Paint.Style.STROKE);
         linePaint.setStrokeWidth(DipUtil.dip2px(getContext(), 1f));
-        // 获取数据的点
+
+        /**
+         * 根据setData传过来的abList内的Score确定存储能力点的数组
+         * pointsArrayList.get(0)即为对应半径点的（x,y）
+         */
         for (int j = 0; j < n; j++) {
             float percent = abList.get(j).getAbScore() / 100f;
             float x = pointsArrayList.get(0).get(j).x * percent;
@@ -262,6 +291,10 @@ public class AbilityView extends View {
         // 画本次的一圈
         Path path = new Path();
         for (int j = 0; j < n; j++) {
+            /**
+             * count>=0&&count<=times初始时（x，y）为(0,0)
+             * 根据scheduledExecutorService
+             */
             float x = (count * abilityPoints.get(j).x) / times;
             float y = (count * abilityPoints.get(j).y) / times;
             if (j == 0) {
@@ -275,6 +308,11 @@ public class AbilityView extends View {
         path.reset();
     }
 
+    /**
+     * 通过设置名字和分数列表以及ScheduledThreadPoolExecutor定时放大功能
+     *
+     * @param abList
+     */
     public void setData(List<AbilityBean> abList) {
         if (abList == null) {
             return;

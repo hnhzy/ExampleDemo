@@ -73,6 +73,9 @@
         <activity
             android:name=".ui.customview.CustomView10Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView11Activity"
+            android:screenOrientation="portrait" />
 
     </application>
 

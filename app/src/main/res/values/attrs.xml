@@ -17,4 +17,10 @@
         <attr name="radius" format="dimension"></attr>
         <attr name="intervalCount" format="integer"></attr>
     </declare-styleable>
+
+    <declare-styleable name="GomokuPanel">
+        <attr name="gomoku_black_pic" format="reference"/>
+        <attr name="gomoku_white_pic" format="reference"/>
+        <attr name="gomoku_board_color" format="color" />
+    </declare-styleable>
 </resources>
