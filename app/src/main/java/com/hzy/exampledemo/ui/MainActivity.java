@@ -29,6 +29,7 @@ import com.hzy.exampledemo.ui.design.FabActivity;
 import com.hzy.exampledemo.ui.design.MenuActivity;
 import com.hzy.exampledemo.ui.design.SceneTransitionActivity;
 import com.hzy.exampledemo.ui.design.ScrollingActivity;
+import com.hzy.exampledemo.ui.nfc.AutoOpenPackageActivity;
 import com.hzy.exampledemo.ui.nfc.AutoOpenUrlActivity;
 import com.hzy.exampledemo.ui.sensor.MotionSensorActivity;
 import com.hzy.exampledemo.ui.sensor.SensorActivity;
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("SensorActivity");
         mList.add("MotionSensorActivity");
         mList.add("AutoOpenUrlActivity");
+        mList.add("AutoOpenPackageActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -159,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 19:
                         startActivity(new Intent(MainActivity.this, AutoOpenUrlActivity.class));
+                        break;
+                    case 20:
+                        startActivity(new Intent(MainActivity.this, AutoOpenPackageActivity.class));
                         break;
                     default:
                         break;
