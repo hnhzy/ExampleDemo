@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hzy.exampledemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--声明只有带有nfc功能的手机才能下载你在google市场发布的具有NFC功能的app-->
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+    <!--开发nfc的权限-->
+    <uses-permission android:name="android.permission.NFC" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -76,6 +85,16 @@
         <activity
             android:name=".ui.customview.CustomView11Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sensor.SensorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sensor.MotionSensorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.nfc.AutoOpenUrlActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 

@@ -29,6 +29,9 @@ import com.hzy.exampledemo.ui.design.FabActivity;
 import com.hzy.exampledemo.ui.design.MenuActivity;
 import com.hzy.exampledemo.ui.design.SceneTransitionActivity;
 import com.hzy.exampledemo.ui.design.ScrollingActivity;
+import com.hzy.exampledemo.ui.nfc.AutoOpenUrlActivity;
+import com.hzy.exampledemo.ui.sensor.MotionSensorActivity;
+import com.hzy.exampledemo.ui.sensor.SensorActivity;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.ArrayList;
@@ -79,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
         mList.add("CustomView9Activity");
         mList.add("CustomView10Activity");
         mList.add("CustomView11Activity");
+        mList.add("SensorActivity");
+        mList.add("MotionSensorActivity");
+        mList.add("AutoOpenUrlActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -144,6 +150,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 16:
                         startActivity(new Intent(MainActivity.this, CustomView11Activity.class));
+                        break;
+                    case 17:
+                        startActivity(new Intent(MainActivity.this, SensorActivity.class));
+                        break;
+                    case 18:
+                        startActivity(new Intent(MainActivity.this, MotionSensorActivity.class));
+                        break;
+                    case 19:
+                        startActivity(new Intent(MainActivity.this, AutoOpenUrlActivity.class));
                         break;
                     default:
                         break;
