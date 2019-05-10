@@ -20,7 +20,7 @@ import com.hzy.exampledemo.R;
 import java.io.IOException;
 
 /**
- * Description nfc自定打开网页
+ * Description nfc自动打开网页
  *
  * @author hzy
  * Create on 2019/5/6 10:49

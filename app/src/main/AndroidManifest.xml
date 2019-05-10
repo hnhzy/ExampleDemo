@@ -3,6 +3,7 @@
     package="com.hzy.exampledemo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <!--声明只有带有nfc功能的手机才能下载你在google市场发布的具有NFC功能的app-->
     <uses-feature
         android:name="android.hardware.nfc"
@@ -10,6 +11,17 @@
     <!--开发nfc的权限-->
     <uses-permission android:name="android.permission.NFC" />
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- 在Android5.0之前，是默认申请GPS硬件功能的。而在Android 5.0 之后，需要在manifest 中申明GPS硬件模块功能的使用。 -->
+    <uses-feature android:name="android.hardware.location.gps" />
+    <!--在 Android 6.0 及以上，还需要打开位置权限。如果应用没有位置权限，蓝牙扫描功能不能使用-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--设置设备只支持 BLE-->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -94,11 +106,19 @@
         <activity
             android:name=".ui.nfc.AutoOpenUrlActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.nfc.AutoOpenPackageActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ble.BleActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ble.Ble2Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
     </application>
 

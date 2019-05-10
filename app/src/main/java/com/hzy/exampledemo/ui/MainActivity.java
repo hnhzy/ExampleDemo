@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
+import com.hzy.exampledemo.ui.ble.Ble2Activity;
+import com.hzy.exampledemo.ui.ble.BleActivity;
 import com.hzy.exampledemo.ui.customview.CustomView10Activity;
 import com.hzy.exampledemo.ui.customview.CustomView11Activity;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
@@ -87,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         mList.add("MotionSensorActivity");
         mList.add("AutoOpenUrlActivity");
         mList.add("AutoOpenPackageActivity");
+        mList.add("BleActivity");
+        mList.add("Ble2Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -164,6 +168,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 20:
                         startActivity(new Intent(MainActivity.this, AutoOpenPackageActivity.class));
+                        break;
+                    case 21:
+                        startActivity(new Intent(MainActivity.this, BleActivity.class));
+                        break;
+                    case 22:
+                        startActivity(new Intent(MainActivity.this, Ble2Activity.class));
                         break;
                     default:
                         break;
