@@ -47,7 +47,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <!--协议部分，随便设置-->
-                <data android:scheme="scheme" android:host="mtime" android:path="/goodsDetail" />
+                <data android:scheme="scheme" android:host="ui" android:path="/fab" />
                 <!--下面这几行也必须得设置-->
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />

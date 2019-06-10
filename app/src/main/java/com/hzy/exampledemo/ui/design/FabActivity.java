@@ -44,8 +44,8 @@ public class FabActivity extends AppCompatActivity {
         initView();
         Uri data = getIntent().getData();
         Log.i(TAG, "host = " + data.getHost() + " path = " + data.getPath() + " query = " + data.getQuery());
-        String param = data.getQueryParameter("goodsId");
-//        schemeTv.setText("获取的参数为：" + param);
+        String param = data.getQueryParameter("uiId");
+        Log.i(TAG, param);
     }
 
     private void initView() {

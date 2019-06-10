@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                          * (2)网络端获取url
                          * (3)跳转
                          */
-                        String url = "scheme://mtime/goodsDetail?goodsId=10011002";
+                        String url = "scheme://ui/fab?uiId=1";
 
                         Intent intent = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse(url));
