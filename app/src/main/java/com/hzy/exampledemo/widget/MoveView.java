@@ -66,8 +66,20 @@ public class MoveView extends AppCompatButton {
         screenHeight = DipUtil.getScreenHeight(getContext());
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        /**
+         *         event.getX();
+         *         event.getY();
+         * 控件点击的位置相对于自身X,Y的值（以左上角为基础）
+         */
+
+        /**
+         *         event.getRawX();
+         *         event.getRawY();
+         * 控件相对于于屏幕X,Y的值（以左上角为基础）
+         */
         int x = (int) event.getRawX();
         int y = (int) event.getRawY();
         switch (event.getAction()) {

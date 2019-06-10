@@ -1,6 +1,7 @@
 package com.hzy.exampledemo.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.internal.FlowLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ import com.hzy.exampledemo.ui.design.FabActivity;
 import com.hzy.exampledemo.ui.design.MenuActivity;
 import com.hzy.exampledemo.ui.design.SceneTransitionActivity;
 import com.hzy.exampledemo.ui.design.ScrollingActivity;
+import com.hzy.exampledemo.ui.ndk.NdkActivity;
 import com.hzy.exampledemo.ui.nfc.AutoOpenPackageActivity;
 import com.hzy.exampledemo.ui.nfc.AutoOpenUrlActivity;
 import com.hzy.exampledemo.ui.sensor.MotionSensorActivity;
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("AutoOpenPackageActivity");
         mList.add("BleActivity");
         mList.add("Ble2Activity");
+        mList.add("NdkActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -100,7 +103,18 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     //design
                     case 0:
-                        startActivity(new Intent(MainActivity.this, FabActivity.class));
+//                        startActivity(new Intent(MainActivity.this, FabActivity.class));
+                        /**
+                         * scheme测试：
+                         * (1)在manifest配置文件中配置了scheme参数
+                         * (2)网络端获取url
+                         * (3)跳转
+                         */
+                        String url = "scheme://mtime/goodsDetail?goodsId=10011002";
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse(url));
+                        startActivity(intent);
                         break;
                     case 1:
                         startActivity(new Intent(MainActivity.this, DrawerActivity.class));
@@ -174,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 22:
                         startActivity(new Intent(MainActivity.this, Ble2Activity.class));
+                        break;
+                    case 23:
+                        startActivity(new Intent(MainActivity.this, NdkActivity.class));
                         break;
                     default:
                         break;

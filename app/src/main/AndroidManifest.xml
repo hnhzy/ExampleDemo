@@ -44,7 +44,16 @@
 
         <activity
             android:name=".ui.design.FabActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data android:scheme="scheme" android:host="mtime" android:path="/goodsDetail" />
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.design.DrawerActivity"
             android:screenOrientation="portrait" />
@@ -117,6 +126,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ble.Ble2Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ndk.NdkActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

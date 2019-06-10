@@ -1,5 +1,6 @@
 package com.hzy.exampledemo.ui.design;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.hzy.exampledemo.R;
@@ -27,6 +29,7 @@ import java.util.List;
  */
 public class FabActivity extends AppCompatActivity {
 
+    private static final String TAG ="FabActivity.class" ;
     private Toolbar toolbar;
     private FloatingActionButton fab;
     private RecyclerView mRvList;
@@ -39,6 +42,10 @@ public class FabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fab);
         initView();
+        Uri data = getIntent().getData();
+        Log.i(TAG, "host = " + data.getHost() + " path = " + data.getPath() + " query = " + data.getQuery());
+        String param = data.getQueryParameter("goodsId");
+//        schemeTv.setText("获取的参数为：" + param);
     }
 
     private void initView() {
