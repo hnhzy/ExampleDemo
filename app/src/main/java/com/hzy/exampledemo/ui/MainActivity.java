@@ -3,7 +3,6 @@ package com.hzy.exampledemo.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.internal.FlowLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,10 +12,12 @@ import android.widget.Toast;
 
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
+import com.hzy.exampledemo.ui.Thread.HanlderThreadActivity;
 import com.hzy.exampledemo.ui.ble.Ble2Activity;
 import com.hzy.exampledemo.ui.ble.BleActivity;
 import com.hzy.exampledemo.ui.customview.CustomView10Activity;
 import com.hzy.exampledemo.ui.customview.CustomView11Activity;
+import com.hzy.exampledemo.ui.customview.CustomView12Activity;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
 import com.hzy.exampledemo.ui.customview.CustomView2Activity;
 import com.hzy.exampledemo.ui.customview.CustomView3Activity;
@@ -28,7 +29,6 @@ import com.hzy.exampledemo.ui.customview.CustomView8Activity;
 import com.hzy.exampledemo.ui.customview.CustomView9Activity;
 import com.hzy.exampledemo.ui.design.CollapsActivity;
 import com.hzy.exampledemo.ui.design.DrawerActivity;
-import com.hzy.exampledemo.ui.design.FabActivity;
 import com.hzy.exampledemo.ui.design.MenuActivity;
 import com.hzy.exampledemo.ui.design.SceneTransitionActivity;
 import com.hzy.exampledemo.ui.design.ScrollingActivity;
@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         mList.add("BleActivity");
         mList.add("Ble2Activity");
         mList.add("NdkActivity");
+        mList.add("CustomView12Activity");
+        mList.add("HanlderThreadActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -191,6 +193,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 23:
                         startActivity(new Intent(MainActivity.this, NdkActivity.class));
+                        break;
+                    case 24:
+                        startActivity(new Intent(MainActivity.this, CustomView12Activity.class));
+                        break;
+                    case 25:
+                        startActivity(new Intent(MainActivity.this, HanlderThreadActivity.class));
                         break;
                     default:
                         break;

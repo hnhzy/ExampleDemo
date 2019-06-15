@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- 读写文件 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <!--声明只有带有nfc功能的手机才能下载你在google市场发布的具有NFC功能的app-->
     <uses-feature
         android:name="android.hardware.nfc"
@@ -47,7 +51,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <!--协议部分，随便设置-->
-                <data android:scheme="scheme" android:host="ui" android:path="/fab" />
+                <data
+                    android:host="ui"
+                    android:path="/fab"
+                    android:scheme="scheme" />
                 <!--下面这几行也必须得设置-->
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />
@@ -130,6 +137,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ndk.NdkActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView12Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.Thread.HanlderThreadActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
