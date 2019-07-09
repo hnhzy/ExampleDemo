@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.hzy.exampledemo.R;
+import com.hzy.exampledemo.bean.ImageModel;
 import com.hzy.exampledemo.utils.DownloadHandlerThread;
 
 import java.util.ArrayList;

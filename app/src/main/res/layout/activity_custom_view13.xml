@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hzy.exampledemo.widget.radarview.RadarView
+            android:id="@+id/ability_view"
+            android:layout_width="700px"
+            android:layout_height="700px"
+            android:layout_centerInParent="true" />
+
+
+        <com.hzy.exampledemo.widget.MoveView2
+            android:id="@+id/mv_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/c_4285F4" />
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

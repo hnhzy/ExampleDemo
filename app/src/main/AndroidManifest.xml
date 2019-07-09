@@ -147,6 +147,18 @@
             android:name=".ui.Thread.HanlderThreadActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.anim.ValueAnimatorActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.anim.ValueAnimActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customview.CustomView13Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
     </application>
 

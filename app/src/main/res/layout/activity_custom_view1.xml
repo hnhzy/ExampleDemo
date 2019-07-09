@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:orientation="vertical">
 
-    <com.hzy.exampledemo.widget.MoveView
-        android:id="@+id/mv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_launcher" />
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="1080dp"
+            android:layout_height="2000dp"
+            android:background="@color/c_4285F4" />
+
+        <com.hzy.exampledemo.widget.MoveView
+            android:id="@+id/mv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher" />
+
+        <com.hzy.exampledemo.widget.MoveView
+            android:id="@+id/mv2"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="50dp"
+            android:background="@mipmap/ic_launcher" />
+
+        <com.hzy.exampledemo.widget.MoveView
+            android:id="@+id/mv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/ic_launcher" />
+
+        <com.hzy.exampledemo.widget.MoveView
+            android:id="@+id/ll_mk_mv"
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="628dp"
+            android:layout_marginRight="65dp">
+
+            <TextView
+                android:id="@+id/tv_mk_mv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="23sp" />
+
+            <ImageView
+                android:id="@+id/iv_mk_mv"
+                android:layout_width="140dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/test_record_default" />
+
+        </com.hzy.exampledemo.widget.MoveView>
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

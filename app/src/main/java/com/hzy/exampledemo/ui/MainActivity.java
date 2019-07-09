@@ -13,11 +13,14 @@ import android.widget.Toast;
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
 import com.hzy.exampledemo.ui.Thread.HanlderThreadActivity;
+import com.hzy.exampledemo.ui.anim.ValueAnimActivity;
+import com.hzy.exampledemo.ui.anim.ValueAnimatorActivity;
 import com.hzy.exampledemo.ui.ble.Ble2Activity;
 import com.hzy.exampledemo.ui.ble.BleActivity;
 import com.hzy.exampledemo.ui.customview.CustomView10Activity;
 import com.hzy.exampledemo.ui.customview.CustomView11Activity;
 import com.hzy.exampledemo.ui.customview.CustomView12Activity;
+import com.hzy.exampledemo.ui.customview.CustomView13Activity;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
 import com.hzy.exampledemo.ui.customview.CustomView2Activity;
 import com.hzy.exampledemo.ui.customview.CustomView3Activity;
@@ -54,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRvList;
     private MainListAdapter mAdapter;
     private List<String> mList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         mList.add("NdkActivity");
         mList.add("CustomView12Activity");
         mList.add("HanlderThreadActivity");
+        mList.add("ValueAnimatorActivity");
+        mList.add("ValueAnimActivity");
+        mList.add("CustomView13Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -199,6 +204,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 25:
                         startActivity(new Intent(MainActivity.this, HanlderThreadActivity.class));
+                        break;
+                    case 26:
+                        startActivity(new Intent(MainActivity.this, ValueAnimatorActivity.class));
+                        break;
+                    case 27:
+                        startActivity(new Intent(MainActivity.this, ValueAnimActivity.class));
+                        break;
+                    case 28:
+                        startActivity(new Intent(MainActivity.this, CustomView13Activity.class));
                         break;
                     default:
                         break;

@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 
-import com.hzy.exampledemo.ui.Thread.ImageModel;
+import com.hzy.exampledemo.bean.ImageModel;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

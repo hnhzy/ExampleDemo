@@ -1,4 +1,4 @@
-package com.hzy.exampledemo.ui.Thread;
+package com.hzy.exampledemo.bean;
 
 import android.graphics.Bitmap;
 
