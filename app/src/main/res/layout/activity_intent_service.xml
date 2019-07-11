@@ -8,13 +8,8 @@
         android:id="@+id/bt_bf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="播放" />
-
-    <Button
-        android:id="@+id/bt_zt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="暂停" />
+        android:onClick="onClick"
+        android:text="下载文件" />
 
 
 </LinearLayout>

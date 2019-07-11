@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
 import com.hzy.exampledemo.ui.Thread.HanlderThreadActivity;
+import com.hzy.exampledemo.ui.Thread.IntentServiceActivity;
 import com.hzy.exampledemo.ui.anim.ValueAnimActivity;
 import com.hzy.exampledemo.ui.anim.ValueAnimatorActivity;
 import com.hzy.exampledemo.ui.ble.Ble2Activity;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("ValueAnimatorActivity");
         mList.add("ValueAnimActivity");
         mList.add("CustomView13Activity");
+        mList.add("IntentServiceActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -213,6 +215,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 28:
                         startActivity(new Intent(MainActivity.this, CustomView13Activity.class));
+                        break;
+                    case 29:
+                        startActivity(new Intent(MainActivity.this, IntentServiceActivity.class));
                         break;
                     default:
                         break;

@@ -1,6 +1,7 @@
 package com.hzy.exampledemo.ui.customview;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
