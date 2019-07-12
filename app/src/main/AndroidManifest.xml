@@ -163,6 +163,10 @@
             android:name=".ui.Thread.IntentServiceActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.drawable.ClipDrawableActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
         <service android:name=".utils.DownloadFileService"></service>
 

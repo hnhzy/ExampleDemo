@@ -36,6 +36,7 @@ import com.hzy.exampledemo.ui.design.DrawerActivity;
 import com.hzy.exampledemo.ui.design.MenuActivity;
 import com.hzy.exampledemo.ui.design.SceneTransitionActivity;
 import com.hzy.exampledemo.ui.design.ScrollingActivity;
+import com.hzy.exampledemo.ui.drawable.ClipDrawableActivity;
 import com.hzy.exampledemo.ui.ndk.NdkActivity;
 import com.hzy.exampledemo.ui.nfc.AutoOpenPackageActivity;
 import com.hzy.exampledemo.ui.nfc.AutoOpenUrlActivity;
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("ValueAnimActivity");
         mList.add("CustomView13Activity");
         mList.add("IntentServiceActivity");
+        mList.add("ClipDrawableActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -218,6 +220,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 29:
                         startActivity(new Intent(MainActivity.this, IntentServiceActivity.class));
+                        break;                    case 30:
+                        startActivity(new Intent(MainActivity.this, ClipDrawableActivity.class));
                         break;
                     default:
                         break;
