@@ -27,7 +27,6 @@ public class ClipDrawableActivity extends AppCompatActivity {
      * ClipDrawable图片逐渐显示的Drawable
      */
     private ClipDrawable clipDrawable;
-    private Thread mThread;
     private Handler mHandler;
 
     static class MyHandler extends Handler {
@@ -41,20 +40,20 @@ public class ClipDrawableActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            Log.d("ClipDrawable-what", msg.what + "");
             ClipDrawableActivity activity = mWeakReference.get();
             if (null != activity) {
                 if (msg.what == 0) {
-                    Log.d("EasyMomentFragment", "EasyMomentFragment1");
+                    Log.d("ClipDrawableActivity", "ClipDrawableActivity1");
                     activity.clipDrawable.setLevel(msg.what);
                     activity.mHandler.sendEmptyMessageDelayed(1000, 60);
                 } else {
-                    Log.d("EasyMomentFragment", "EasyMomentFragment2");
-                    if (activity.clipDrawable.getLevel() <= 10000) {
+                    if (activity.clipDrawable.getLevel() < 10000) {
+                        Log.d("ClipDrawableActivity", "ClipDrawableActivity2");
                         activity.clipDrawable.setLevel(msg.what);
                         activity.mHandler.sendEmptyMessageDelayed(activity.clipDrawable.getLevel() + 1000, 60);
                     } else {
-                        //皮肤属性动画
-                        activity.mHandler.removeMessages(msg.what);
+                        Log.d("ClipDrawableActivity", "ClipDrawableActivity3");
                     }
                 }
             }
@@ -67,35 +66,8 @@ public class ClipDrawableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clip_drawable);
         mIvDmhs = findViewById(R.id.iv_dmhs);
         mHandler = new MyHandler(this);
-        mThread = new MyThread(mHandler);
         clipDrawable = (ClipDrawable) mIvDmhs.getDrawable();
         clipDrawable.setLevel(0);
-        mThread.start();
-    }
-
-
-    /**
-     * 使用静态的线程防止内存泄露
-     */
-    public static class MyThread extends Thread {
-
-        private Handler handler;
-
-        public MyThread(Handler handler) {
-            this.handler = handler;
-        }
-
-        @Override
-        public void run() {
-            super.run();
-            Message msg = Message.obtain();
-            msg.what = 0;
-            handler.sendMessage(msg);
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+        mHandler.sendEmptyMessage(0);
     }
 }
