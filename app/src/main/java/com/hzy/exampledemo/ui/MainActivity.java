@@ -14,6 +14,8 @@ import com.hzy.exampledemo.R;
 import com.hzy.exampledemo.adapter.MainListAdapter;
 import com.hzy.exampledemo.ui.Thread.HanlderThreadActivity;
 import com.hzy.exampledemo.ui.Thread.IntentServiceActivity;
+import com.hzy.exampledemo.ui.Thread.MultithreadDownloadActivity;
+import com.hzy.exampledemo.ui.Thread.ThreadPoolActivity;
 import com.hzy.exampledemo.ui.anim.ValueAnimActivity;
 import com.hzy.exampledemo.ui.anim.ValueAnimatorActivity;
 import com.hzy.exampledemo.ui.ble.Ble2Activity;
@@ -22,6 +24,7 @@ import com.hzy.exampledemo.ui.customview.CustomView10Activity;
 import com.hzy.exampledemo.ui.customview.CustomView11Activity;
 import com.hzy.exampledemo.ui.customview.CustomView12Activity;
 import com.hzy.exampledemo.ui.customview.CustomView13Activity;
+import com.hzy.exampledemo.ui.customview.CustomView14Activity;
 import com.hzy.exampledemo.ui.customview.CustomView1Activity;
 import com.hzy.exampledemo.ui.customview.CustomView2Activity;
 import com.hzy.exampledemo.ui.customview.CustomView3Activity;
@@ -53,7 +56,6 @@ import java.util.List;
  * @author Administrator
  */
 public class MainActivity extends AppCompatActivity {
-
 
     private Toolbar toolbar;
     private RecyclerView mRvList;
@@ -105,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
         mList.add("CustomView13Activity");
         mList.add("IntentServiceActivity");
         mList.add("ClipDrawableActivity");
+        mList.add("ThreadPoolActivity");
+        mList.add("MultithreadDownloadActivity");
+        mList.add("CustomView14Activity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -220,8 +225,17 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 29:
                         startActivity(new Intent(MainActivity.this, IntentServiceActivity.class));
-                        break;                    case 30:
+                        break;
+                    case 30:
                         startActivity(new Intent(MainActivity.this, ClipDrawableActivity.class));
+                        break;
+                    case 31:
+                        startActivity(new Intent(MainActivity.this, ThreadPoolActivity.class));
+                        break;
+                    case 32:
+                        startActivity(new Intent(MainActivity.this, MultithreadDownloadActivity.class));
+                        break;                case 33:
+                        startActivity(new Intent(MainActivity.this, CustomView14Activity.class));
                         break;
                     default:
                         break;
