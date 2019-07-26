@@ -14,5 +14,6 @@
     <color name="c_ffffff">#ffffff</color>
     <color name="c_2ff5c9">#2ff5c9</color>
     <color name="c_2bebe2">#2bebe2</color>
+    <color name="black_back">#000000</color>
 
 </resources>

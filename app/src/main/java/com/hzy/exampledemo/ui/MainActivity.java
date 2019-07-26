@@ -1,8 +1,10 @@
 package com.hzy.exampledemo.ui;
 
+import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +22,9 @@ import com.hzy.exampledemo.ui.anim.ValueAnimActivity;
 import com.hzy.exampledemo.ui.anim.ValueAnimatorActivity;
 import com.hzy.exampledemo.ui.ble.Ble2Activity;
 import com.hzy.exampledemo.ui.ble.BleActivity;
+import com.hzy.exampledemo.ui.camera.CameraViewActivity;
+import com.hzy.exampledemo.ui.camera.OcclusionActivity;
+import com.hzy.exampledemo.ui.camera.TakePhotoActivity;
 import com.hzy.exampledemo.ui.customview.CustomView10Activity;
 import com.hzy.exampledemo.ui.customview.CustomView11Activity;
 import com.hzy.exampledemo.ui.customview.CustomView12Activity;
@@ -66,7 +71,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initPermission();
         initView();
+    }
+
+    private void initPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{
+                        Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION},
+                0);//自定义的code
+
     }
 
     private void initView() {
@@ -110,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
         mList.add("ThreadPoolActivity");
         mList.add("MultithreadDownloadActivity");
         mList.add("CustomView14Activity");
+        mList.add("CameraViewActivity");
+        mList.add("TakePhotoActivity");
+        mList.add("OcclusionActivity");
         mAdapter = new MainListAdapter(this, mList);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setAdapter(mAdapter);
@@ -234,8 +250,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 32:
                         startActivity(new Intent(MainActivity.this, MultithreadDownloadActivity.class));
-                        break;                case 33:
+                        break;
+                    case 33:
                         startActivity(new Intent(MainActivity.this, CustomView14Activity.class));
+                        break;
+                    case 34:
+                        startActivity(new Intent(MainActivity.this, CameraViewActivity.class));
+                        break;
+                    case 35:
+                        startActivity(new Intent(MainActivity.this, TakePhotoActivity.class));
+                        break;
+                    case 36:
+                        startActivity(new Intent(MainActivity.this, OcclusionActivity.class));
                         break;
                     default:
                         break;
